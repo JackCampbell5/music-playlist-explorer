@@ -20,7 +20,7 @@
             <span class="close" id="model-close">&times;</span>
             <div id="playlist-viewer">
                 <div id="playlist-content">
-                    <img class="playlist-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                    <img id="playlist-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                     <div id="playlist-info">
                         <h1 id="playlist-name">Playlist Name</h1>
                         <h2 id="playlist-author">Playlist Author</h2>
@@ -30,76 +30,418 @@
                 </div>
                 <div id="playlist-songs">
                     <div class="song-info">
-                        <img class="playlist-song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                         <div class="song-params">
-                            <p class="playlist-song">Song</p>
-                            <p class="playlist-artist">Artist </p>
-                            <p class="playlist-album">Album </p>
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
                         </div>
-                            <p class="playlist-length">Length </p>
+                            <p class="song-length">Length </p>
                     </div>
                     <div class="song-info">
-                        <img class="playlist-song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                         <div class="song-params">
-                            <p class="playlist-song">Song</p>
-                            <p class="playlist-artist">Artist </p>
-                            <p class="playlist-album">Album </p>
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
                         </div>
-                            <p class="playlist-length">Length </p>
+                            <p class="song-length">Length </p>
                     </div>
                     <div class="song-info">
-                        <img class="playlist-song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                         <div class="song-params">
-                            <p class="playlist-song">Song</p>
-                            <p class="playlist-artist">Artist </p>
-                            <p class="playlist-album">Album </p>
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
                         </div>
-                            <p class="playlist-length">Length </p>
+                            <p class="song-length">Length </p>
                     </div>
                     <div class="song-info">
-                        <img class="playlist-song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                         <div class="song-params">
-                            <p class="playlist-song">Song</p>
-                            <p class="playlist-artist">Artist </p>
-                            <p class="playlist-album">Album </p>
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
                         </div>
-                            <p class="playlist-length">Length </p>
+                            <p class="song-length">Length </p>
                     </div>
                     <div class="song-info">
-                        <img class="playlist-song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                         <div class="song-params">
-                            <p class="playlist-song">Song</p>
-                            <p class="playlist-artist">Artist </p>
-                            <p class="playlist-album">Album </p>
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
                         </div>
-                            <p class="playlist-length">Length </p>
+                            <p class="song-length">Length </p>
                     </div>
                     <div class="song-info">
-                        <img class="playlist-song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                         <div class="song-params">
-                            <p class="playlist-song">Song</p>
-                            <p class="playlist-artist">Artist </p>
-                            <p class="playlist-album">Album </p>
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
                         </div>
-                            <p class="playlist-length">Length </p>
+                            <p class="song-length">Length </p>
                     </div>
                     <div class="song-info">
-                        <img class="playlist-song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                         <div class="song-params">
-                            <p class="playlist-song">Song</p>
-                            <p class="playlist-artist">Artist </p>
-                            <p class="playlist-album">Album </p>
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
                         </div>
-                            <p class="playlist-length">Length </p>
+                            <p class="song-length">Length </p>
                     </div>
                     <div class="song-info">
-                        <img class="playlist-song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
                         <div class="song-params">
-                            <p class="playlist-song">Song</p>
-                            <p class="playlist-artist">Artist </p>
-                            <p class="playlist-album">Album </p>
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
                         </div>
-                            <p class="playlist-length">Length </p>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
+                    </div>
+                    <div class="song-info">
+                        <img class="song-image" src="./assets/img/playlist.png" alt="Playlist Image"/>
+                        <div class="song-params">
+                            <p class="song-title">Song</p>
+                            <p class="song-artist">Artist </p>
+                            <p class="song-album">Album </p>
+                        </div>
+                            <p class="song-length">Length </p>
                     </div>
                 </div>
             </div>
@@ -109,37 +451,37 @@
         <h2> Playlist Gallery</h2>
         <div id="tiles">
             <div class="tile">
-                <img src="./assets/img/playlist.png" alt="Playlist Image"/>
+                <img class="play-select-cover" src="./assets/img/playlist.png" alt="Playlist Image"/>
                 <p class="play-name">Playlist name</p>
                 <p class ="play-author">Author</p>
                 <p class="play-id">20 Likes</p>
             </div>
             <div class="tile">
-                <img src="./assets/img/playlist.png" alt="Playlist Image"/>
+                <img class="play-select-cover" src="./assets/img/playlist.png" alt="Playlist Image"/>
                 <p class="play-name">Playlist name</p>
                 <p class ="play-author">Author</p>
                 <p class="play-id">20 Likes</p>
             </div>
             <div class="tile">
-                <img src="./assets/img/playlist.png" alt="Playlist Image"/>
+                <img class="play-select-cover" src="./assets/img/playlist.png" alt="Playlist Image"/>
                 <p class="play-name">Playlist name</p>
                 <p class ="play-author">Author</p>
                 <p class="play-id">20 Likes</p>
             </div>
             <div class="tile">
-                <img src="./assets/img/playlist.png" alt="Playlist Image"/>
+                <img class="play-select-cover" src="./assets/img/playlist.png" alt="Playlist Image"/>
                 <p class="play-name">Playlist name</p>
                 <p class ="play-author">Author</p>
                 <p class="play-id">20 Likes</p>
             </div>
             <div class="tile">
-                <img src="./assets/img/playlist.png" alt="Playlist Image"/>
+                <img class="play-select-cover" src="./assets/img/playlist.png" alt="Playlist Image"/>
                 <p class="play-name">Playlist name</p>
                 <p class ="play-author">Author</p>
                 <p class="play-id">20 Likes</p>
             </div>
             <div class="tile">
-                <img src="./assets/img/playlist.png" alt="Playlist Image"/>
+                <img class="play-select-cover" src="./assets/img/playlist.png" alt="Playlist Image"/>
                 <p class="play-name">Playlist name</p>
                 <p class ="play-author">Author</p>
                 <p class="play-id">20 Likes</p>
