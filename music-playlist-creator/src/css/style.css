@@ -3,14 +3,8 @@ body {
     padding: 0;
     background-color: #f8f8f8;
 }
-header{
-    background-color: lightblue;
-    padding: 1px;
-    margin: 0px;
-    text-align: center;
-    font-size: 300%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva;
-}
+
+
 /* Tiles CSS */
 #tiles{
     display: flex;
@@ -26,6 +20,8 @@ header{
     width: 250px;
     margin: -10px;
     font-size: 20px;
+    text-align: left;
+    /* padding: 10px; */
     
 }
 .tile:hover{
@@ -36,11 +32,28 @@ header{
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-.tile img{
+.play-select-cover{
     border-radius: 3%;
     width: 250px;
     height: 250px;
 
+}
+
+.like-container{
+    display: flex;
+    gap: 0px 50px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.tile-like{
+    width: 20px;
+    height: 20px;
+}
+.tile-like:hover{
+    opacity: 50%;
+    border: 5px solid #ff7575;
+    border-radius: 50%;
+      box-sizing: border-box;
 }
 .tile-button{
     border-radius: 5%;
@@ -97,7 +110,7 @@ header{
 #playlist-viewer{
     display: flex;
     gap: 50px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: flex-start;
     flex-direction: column;
 }
@@ -111,7 +124,8 @@ header{
     width: 300px;
     height: 300px;
     border-radius: 10%;
-}
+} 
+
 
 /* The overall container that contains all the different songs */
 #playlist-songs{
@@ -119,6 +133,16 @@ header{
     gap: 10px;
     flex-direction: column;
 }
+
+#playlist-shuffle{
+border: 10px green solid;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 20%;
+}
+
 
 .song-image{
     width: 100px;

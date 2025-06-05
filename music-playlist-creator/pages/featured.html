@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Music Playlist Explorer</title>
+    <link rel="icon" type="image/x-icon" href="./../images/favicon.ico">
+    
+    <link rel="stylesheet" href="./../src/css/style.css">
+    <link rel="stylesheet" href="./../src/css/styleFeatured.css">
+    <link rel="stylesheet" href="./../src/css/header.css">
+</head>
+<body>
+    <header>
+        <h1>Featured Playlist</h1>
+        <div class="playlist-cards"></div>
+        <div id="navbar">
+            <button class="navbar-button" id="home-button">Home</button>
+        </div>
+    </header>
+    <main> 
+        <div id="playlist-content">
+            <img id="playlist-image" src="./../assets/img/playlist.png" alt="Playlist Image"/>
+            <div id="playlist-info">
+                <h1 id="playlist-name">Playlist Name</h1>
+                <h2 id="playlist-author">Playlist Author</h2>
+                <h2 id="playlist-length">Playlist Length</h2>
+                <h2 id="playlist-likes">Playlist Likes</h2>
+                <button id="playlist-shuffle">Shuffle</button>
+            </div>
+        </div>
+            <div id="playlist-songs">
+        </div>
+    </main>
+    <footer>
+        <h2>Footer :&#41;</h2>
+    </footer>
+    <script src="./../src/js/data.js"></script>
+    <script type="module" src="./../src/js/scriptFeatured.js"></script>
+</body>
+</html>
