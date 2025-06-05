@@ -63,54 +63,41 @@ export function loadPlaylist(playNumber, data,path=""){
 
 }
 function swapSongs(songOne, songTwo,playlist){
-  
-    const image = playlist[songOne].querySelector(".song-image");
-    const image2 = playlist[songTwo].querySelector(".song-image");
-    const imageTemp = image.src
-    image.src = image2.src
-    image2.src = imageTemp
-
-    const title = playlist[songOne].getElementsByClassName("song-title")[0];
-    const title2 = playlist[songTwo].getElementsByClassName("song-title")[0];
-    const titleTemp = title.innerText
-    title.innerText = title2.innerText
-    title2.innerText = titleTemp 
-
+    const swapSongprop = swapProp(playlist,songOne,songTwo);
     
-    const artist = playlist[songOne].getElementsByClassName("song-artist")[0];
-    const artist2 = playlist[songTwo].getElementsByClassName("song-artist")[0];
-    const artistTemp = artist.innerText
-    artist.innerText = artist2.innerText
-    artist2.innerText = artistTemp
-
-    const album = playlist[songOne].getElementsByClassName("song-album")[0];
-    const album2 = playlist[songTwo].getElementsByClassName("song-album")[0];
-    const albumTemp = album.innerText
-    album.innerText = album2.innerText
-    album2.innerText = albumTemp
-
-    
-    const length = playlist[songOne].getElementsByClassName("song-length")[0];
-    const length2 = playlist[songTwo].getElementsByClassName("song-length")[0];
-    const lengthTemp = length.innerText
-    length.innerText = length2.innerText
-    length2.innerText = lengthTemp
-
-    const border = playlist[songOne];
-    const border2 = playlist[songTwo];
-    const borderTemp = border.style.borderColor
-    border.style.borderColor = border2.style.borderColor
-    border2.style.borderColor = borderTemp
-
-    const background = playlist[songOne];
-    const background2 = playlist[songTwo];
-    const backgroundTemp = background.style.backgroundImage 
-    background.style.backgroundImage = background2.style.backgroundImage 
-    background2.style.backgroundImage = backgroundTemp
+    swapSongprop("src","",'.song-image');
+    swapSongprop("innerText","",'.song-title');
+    swapSongprop("innerText","",'.song-artist');
+    swapSongprop("innerText","",'.song-album');
+    swapSongprop("innerText","",'.song-length');
+    swapSongprop("style","borderColor")
+    swapSongprop("style","backgroundImage")
 
 
 }
 
+function swapProp(doc, name1, name2){
+  return (prop1,prop2="",className="") =>{
+  let val1 = doc[name1];
+  let val2 = doc[name2];
+  if(className){
+    val1 = doc[name1].querySelector(className);
+    val2 = doc[name2].querySelector(className);
+  }
+  if(prop2){
+    const valTemp = val1[prop1][prop2]
+    val1[prop1][prop2] = val2[prop1][prop2]
+    val2[prop1][prop2] = valTemp
+  }else{
+    const valTemp = val1[prop1]
+    console.log(val1[prop1])
+    val1[prop1] = val2[prop1]
+    val2[prop1] = valTemp
+  }
+}
+
+
+}
 
 
 
