@@ -62,43 +62,6 @@ export function loadPlaylist(playNumber, data,path=""){
 
 
 }
-function swapSongs(songOne, songTwo,playlist){
-    const swapSongprop = swapProp(playlist,songOne,songTwo);
-    
-    swapSongprop("src","",'.song-image');
-    swapSongprop("innerText","",'.song-title');
-    swapSongprop("innerText","",'.song-artist');
-    swapSongprop("innerText","",'.song-album');
-    swapSongprop("innerText","",'.song-length');
-    swapSongprop("style","borderColor")
-    swapSongprop("style","backgroundImage")
-
-
-}
-
-function swapProp(doc, name1, name2){
-  return (prop1,prop2="",className="") =>{
-  let val1 = doc[name1];
-  let val2 = doc[name2];
-  if(className){
-    val1 = doc[name1].querySelector(className);
-    val2 = doc[name2].querySelector(className);
-  }
-  if(prop2){
-    const valTemp = val1[prop1][prop2]
-    val1[prop1][prop2] = val2[prop1][prop2]
-    val2[prop1][prop2] = valTemp
-  }else{
-    const valTemp = val1[prop1]
-    console.log(val1[prop1])
-    val1[prop1] = val2[prop1]
-    val2[prop1] = valTemp
-  }
-}
-
-
-}
-
 
 
 export function shuffle() {
@@ -115,6 +78,37 @@ export function shuffle() {
   }
 }
 
+function swapSongs(songOne, songTwo,playlist){
+    const swapSongprop = swapProp(playlist,songOne,songTwo);
+    swapSongprop("src","",'.song-image');
+    swapSongprop("innerText","",'.song-title');
+    swapSongprop("innerText","",'.song-artist');
+    swapSongprop("innerText","",'.song-album');
+    swapSongprop("innerText","",'.song-length');
+    swapSongprop("style","borderColor")
+    swapSongprop("style","backgroundImage")
+}
+
+
+export function swapProp(doc, name1, name2){
+  return (prop1,prop2="",className="") =>{
+    let val1 = doc[name1];
+    let val2 = doc[name2];
+    if(className){
+      val1 = doc[name1].querySelector(className);
+      val2 = doc[name2].querySelector(className);
+    }
+    if(prop2){
+      const valTemp = val1[prop1][prop2]
+      val1[prop1][prop2] = val2[prop1][prop2]
+      val2[prop1][prop2] = valTemp
+    }else{
+      const valTemp = val1[prop1]
+      val1[prop1] = val2[prop1]
+      val2[prop1] = valTemp
+    }
+  }
+}
 
 export async function fetchData(path=""){
     return await fetch(`./${path}src/js/data.js`)

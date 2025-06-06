@@ -1,4 +1,4 @@
-import { loadPlaylist,shuffle,fetchData,rainbow} from './helper.js';
+import { loadPlaylist,shuffle,fetchData,rainbow,swapProp} from './helper.js';
 
 // Variables 
 var modal = document.getElementById("myModal");
@@ -40,8 +40,11 @@ function onPlaylistClicked(){
 
    loadPlaylist(playNumber,data)
 
-
 }
+
+
+
+
 
 function createTile(playlists,a,tiles){
   const playlistInfo = document.createElement('div')
@@ -99,6 +102,73 @@ function createTile(playlists,a,tiles){
 }
 
 
+
+document.querySelector("#sort-playlists").addEventListener('change',()=>{
+  let whatSort = document.querySelector("#sort-playlists").value;
+  let tiles = document.getElementsByClassName("tile");
+  let order = Array.from({ length: data[0].playlists.length }, (_, i) => i);
+  let assend = true
+
+  // Check if assending
+  if(whatSort.substring(whatSort.length-1)==='D'){
+    assend = false;
+  }
+
+  whatSort  =  whatSort.substring(0,whatSort.length-1);// Get sort type
+
+  let namesOrigonal, namesToSort;
+  
+  // Get the new order
+  switch(whatSort){
+    case "title":
+      //Sort by title
+      namesOrigonal = Array.from(tiles).map(element => element.querySelector(".play-name").innerText);
+      console.log(namesOrigonal)
+      namesToSort = Array.from(namesOrigonal).sort();
+      order = namesToSort.map(a => namesOrigonal.indexOf(a));
+      break;
+    case "author":
+      // Sort by author
+      namesOrigonal = Array.from(tiles).map(element => element.querySelector(".play-author").innerText);
+      namesToSort = Array.from(namesOrigonal).sort();
+      order = namesToSort.map(a => namesOrigonal.indexOf(a));
+      break;
+    case "like":
+      //Sort by likes
+      namesOrigonal = Array.from(tiles).map(element => element.querySelector(".play-likes").innerText);
+      namesToSort = Array.from(namesOrigonal).sort();
+      order = namesToSort.map(a => namesOrigonal.indexOf(a));
+  }
+
+  // Reverse the resulting list if the list is decending
+  if(!assend){
+    order.reverse();
+  }
+  
+  let help = Array.from({ length: playlists.length }, (_, i) => i);
+
+    // Swap the tiles so they are in the given order
+   for(const a in order){
+    let b = help.indexOf(order[a]);
+    swapTiles(tiles,a,b);
+    let oneTemp = help[a];
+    help[a] = help[b]
+    help[b] = oneTemp
+   }
+
+
+});
+
+
+
+function swapTiles(playlist,songOne, songTwo){
+      const swapSongprop = swapProp(playlist,songOne,songTwo);
+      swapSongprop("src","",'.play-select-cover');
+      swapSongprop("innerText","",'.play-name');
+      swapSongprop("innerText","",'.play-author');
+      swapSongprop("innerText","",'.play-id');
+      swapSongprop("style","borderColor")
+}
 
 //Event Listeners
 
