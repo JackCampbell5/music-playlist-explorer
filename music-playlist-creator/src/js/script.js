@@ -183,7 +183,13 @@ function swapTiles(playlist,songOne, songTwo){
 }
 
 
-document.querySelector("#search-box").addEventListener('change',()=>{
+document.querySelector("#search-button").addEventListener('click',search);
+document.querySelector("#search-box").addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    search()}});
+
+  
+function search(){
     let searchFor = document.querySelector("#search-box").value.toLowerCase();
     let tiles = document.getElementsByClassName("tile");
     const names = Array.from(tiles).map(element => element.querySelector(".play-name").innerText.toLowerCase());
@@ -192,20 +198,20 @@ document.querySelector("#search-box").addEventListener('change',()=>{
 
     let help = Array.from({ length: names.length }, (_, i) => i);
     for(let a =0; a<names.length;a++){
-      // console.log(names[a])
-      // console.log(a);
-      // console.log(names[a].includes(searchFor))
       if(names[a].includes(searchFor)||authors[a].includes(searchFor)||likes[a].includes(searchFor)){
         tiles[a].style.display = 'block'
-        // help.splice(help.indexOf(a),1);
       }else{
         tiles[a].style.display = 'none'
       }
     }
     
-  });
+  }
 
-
+document.querySelector("#clear-button").addEventListener('click',()=>{
+      let searchFor = document.querySelector("#search-box");
+      searchFor.value = ""
+      search()
+});
 
 //Event Listeners
 

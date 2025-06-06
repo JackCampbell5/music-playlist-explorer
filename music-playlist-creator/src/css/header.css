@@ -25,6 +25,19 @@ header{
     max-width: 200px;
 }
 
+
+.search-button{
+    font-size: min(1vw,30px);
+    padding: min(1vw,10px) min(1vw,10px);
+    margin: min(1vw,10px);
+    border: 5px solid darkblue;
+    background-color: #a2a2ff;
+    font-weight: bold;
+    border-radius: 10%;
+    width: 5vw;
+    max-width: 120px;
+}
+
 .navbar-button:hover{
     background-color: #4a4aff;
 }
@@ -38,10 +51,10 @@ header{
 .nav-input{
     font-size: min(2vw,25px);
     height: min(3vw,30px);
-    margin: 0px min(4vw,70px) 0px 0px;
 }
 #sort-playlists{
     width: 15vw;
+    margin: 0px min(4vw,70px) 0px 0px;
 }
 
 #search-box{
