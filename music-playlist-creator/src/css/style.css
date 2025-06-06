@@ -44,11 +44,11 @@ body {
     justify-content: flex-start;
     align-items: center;
 }
-.tile-like{
+.play-icon{
     width: 20px;
     height: 20px;
 }
-.tile-like:hover{
+.play-icon:hover{
     opacity: 50%;
     border: 5px solid #ff7575;
     border-radius: 50%;
@@ -57,6 +57,7 @@ body {
 .tile-button{
     border-radius: 5%;
 }
+
 
 
 
