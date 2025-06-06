@@ -40,7 +40,7 @@ body {
 
 .like-container{
     display: flex;
-    gap: 0px 50px;
+    gap: 0px 10px;
     justify-content: flex-start;
     align-items: center;
 }
@@ -57,7 +57,15 @@ body {
 .tile-button{
     border-radius: 5%;
 }
-
+.play-delete{
+    border: 5px solid #a30101;
+    border-radius: 20%;
+    padding: 5px;
+    margin: 10px 10px 10px 30px;
+}
+.play-delete:hover{
+    background-color: #ffbbbb;
+}
 
 
 
