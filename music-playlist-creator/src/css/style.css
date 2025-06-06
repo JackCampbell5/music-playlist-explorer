@@ -9,9 +9,8 @@ body {
 #tiles{
     display: flex;
     gap: 50px;
-    justify-content: center;
-    flex-wrap: wrap;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .tile{
     border: 10px solid red;

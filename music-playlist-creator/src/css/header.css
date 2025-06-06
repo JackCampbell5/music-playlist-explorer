@@ -7,6 +7,12 @@ header{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva;
 }
 
+#navbar{    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .navbar-button{
     font-size: 60%;
     padding: 10px 30px;
@@ -19,4 +25,16 @@ header{
 
 .navbar-button:hover{
     background-color: #4a4aff;
+}
+
+#sort-text{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0px 10px 0px 30px;
+}
+
+#sort-playlists{
+    font-size: 25px;
+    height: 30px;
+    margin: 0px 70px 0px 0px;
 }
