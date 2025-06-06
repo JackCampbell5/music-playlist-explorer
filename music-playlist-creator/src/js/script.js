@@ -96,8 +96,18 @@ function createTile(playlists,a,tiles){
       playlists[a].likes = likes
       playId.innerText = `Likes: ${likes}`
   });
-  
   likeContainer.appendChild(likeIcon)
+
+  const deleteButton = document.createElement('div')
+  deleteButton.setAttribute('class',"play-delete")
+  deleteButton.innerText = `Delete`
+  deleteButton.addEventListener('click', (e)=>{
+      e.stopPropagation();
+     const playlisOverall = deleteButton.parentNode.parentNode;
+     playlisOverall.remove();
+  });
+  likeContainer.appendChild(deleteButton);
+  
   playlistInfo.appendChild(likeContainer)
   tiles.appendChild(playlistInfo);
 }
@@ -194,7 +204,6 @@ document.querySelector("#search-box").addEventListener('change',()=>{
     }
     
   });
-
 
 
 
