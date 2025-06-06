@@ -1,5 +1,5 @@
 header{
-    background-color: lightblue;
+    background-image: linear-gradient(0deg,rgba(255, 255, 255, 0.5), rgba(243, 255, 255, 0.5) 20%, rgba(61, 255, 236, 0.5));
     padding: 1px;
     margin: 0px;
     text-align: center;
@@ -11,18 +11,32 @@ header{
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .navbar-button{
-    font-size: min(3vw,30px);
-    padding: min(2vw,10px) min(2vw,10px);
+    font-size: min(max(3vw,10px),30px);
+    padding: min(3vw,10px) min(3vw,10px);
     margin: min(2vw,10px);
     border: 5px solid darkblue;
     background-color: #a2a2ff;
     font-weight: bold;
     border-radius: 10%;
-    width: 20vw;
+    width: max(20vw, 75px);
     max-width: 200px;
+}
+
+
+.search-button{
+    font-size: max(1.5vw,10px);
+    padding: min(1vw,10px) min(1vw,10px);
+    margin: min(1vw,10px);
+    border: 5px solid darkblue;
+    background-color: #a2a2ff;
+    font-weight: bold;
+    border-radius: 10%;
+    width: max(10vw, 50px);
+    max-width: 120px;
 }
 
 .navbar-button:hover{
@@ -30,18 +44,18 @@ header{
 }
 
 .nav-text{
-    font-size: min(3vw,30px);
+    font-size: min(max(3vw,10px),30px);
     font-weight: bold;
     margin: 0px 10px 0px 30px;
 }
 
 .nav-input{
-    font-size: min(2vw,25px);
-    height: min(3vw,30px);
-    margin: 0px min(4vw,70px) 0px 0px;
+    font-size: max(2vw,10px);
+    height: max(3vw,30px);
 }
 #sort-playlists{
     width: 15vw;
+    margin: 0px min(4vw,70px) 0px 0px;
 }
 
 #search-box{

@@ -1,15 +1,17 @@
-import { loadPlaylist,shuffle,fetchData,rainbow,swapProp} from './helper.js';
+import { loadPlaylist,shuffle,fetchData,rainbow,swapProp,addSong,editSetup,editAddSong,doneEdit} from './helper.js';
 
 // Variables 
 var modal = document.getElementById("myModal");
 let data = undefined;
-
 async function onPageLoad() {
-    console.log("Page Loaded");
-
-
-data = await fetchData();
-
+  console.log("Page Loaded");
+  const temp  = localStorage.getItem('data');
+  if(!temp){
+    console.log("Getting data")
+    data = await fetchData();
+  }else{
+    data = JSON.parse(temp);
+  }
   const playlists = data[0].playlists;
 
   // Create all the tiles based on the number of playlists tha exist 
@@ -28,7 +30,7 @@ function onPlaylistClicked(){
     let playNumber = -1;
     for(let a =0; a<playlists.length; a++){
         if(playlists[a]===this){
-            playNumber = a+1;
+            playNumber = a;
             break;
         }
     }
@@ -37,6 +39,7 @@ function onPlaylistClicked(){
     if( playNumber === -1){
         console.error('Can not find which playlist was clicked:', error);
     }
+    console.log(playNumber)
 
    loadPlaylist(playNumber,data)
 
@@ -102,9 +105,24 @@ function createTile(playlists,a,tiles){
   deleteButton.setAttribute('class',"play-delete")
   deleteButton.innerText = `Delete`
   deleteButton.addEventListener('click', (e)=>{
-      e.stopPropagation();
-     const playlisOverall = deleteButton.parentNode.parentNode;
-     playlisOverall.remove();
+    e.stopPropagation();
+    const playName = deleteButton.parentNode.parentNode.querySelector(".play-name").innerText;
+    // Find where in Data Array
+    let num = -1;
+    for(let a= 0; a<data[0].playlists.length; a++){
+      if(data[0].playlists[a].name === playName){
+        num = a
+        break;
+      }
+    }
+    // Remove from Data Array
+    if(num!==-1){
+      data[0].playlists.splice(num,1)
+    }
+
+    // Remove from grid 
+    const playlisOverall = deleteButton.parentNode.parentNode;
+    playlisOverall.remove();
   });
   likeContainer.appendChild(deleteButton);
   
@@ -183,7 +201,13 @@ function swapTiles(playlist,songOne, songTwo){
 }
 
 
-document.querySelector("#search-box").addEventListener('change',()=>{
+document.querySelector("#search-button").addEventListener('click',search);
+document.querySelector("#search-box").addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    search()}});
+
+  
+function search(){
     let searchFor = document.querySelector("#search-box").value.toLowerCase();
     let tiles = document.getElementsByClassName("tile");
     const names = Array.from(tiles).map(element => element.querySelector(".play-name").innerText.toLowerCase());
@@ -192,27 +216,95 @@ document.querySelector("#search-box").addEventListener('change',()=>{
 
     let help = Array.from({ length: names.length }, (_, i) => i);
     for(let a =0; a<names.length;a++){
-      // console.log(names[a])
-      // console.log(a);
-      // console.log(names[a].includes(searchFor))
       if(names[a].includes(searchFor)||authors[a].includes(searchFor)||likes[a].includes(searchFor)){
         tiles[a].style.display = 'block'
-        // help.splice(help.indexOf(a),1);
       }else{
         tiles[a].style.display = 'none'
       }
     }
     
-  });
+  }
+
+document.querySelector("#clear-button").addEventListener('click',()=>{
+      let searchFor = document.querySelector("#search-box");
+      searchFor.value = ""
+      search()
+});
+
+
+document.querySelector("#add-button").addEventListener('click',()=>{
+  const newDiv = document.querySelector("#new-playlist");    
+  let addDiv = newDiv.querySelector("#new-song-list");
+  addSong(addDiv,data)
+
+});
 
 
 
+
+
+
+document.querySelector("#done-button").addEventListener('click',()=>{
+      let addDiv = document.getElementsByClassName("all-new-songs");
+      let songs =  data[0].songs;
+      let playlistSongs = []
+      let playlistDiv = document.querySelector("#new-playlist");
+      let playlistName = getValue(playlistDiv.querySelector("#new-name"))
+      let playlistCover = getValue(playlistDiv.querySelector("#new-link"))
+      let playlistAuthor = getValue(playlistDiv.querySelector("#new-author"))
+  
+      for(let a of addDiv){
+        console.log(addDiv)
+        let songName = getValue(a.querySelector(".new-song"))
+        let artistName = getValue(a.querySelector(".new-artist"))
+        let albumName = getValue(a.querySelector(".new-album"))
+        let lengthName = getValue(a.querySelector(".new-length"))
+        let vals = {name:songName,album:albumName,artist:artistName,length:lengthName,cover:'./assets/img/song.png'}
+        let num = songs.length;
+        for(let b in songs){
+          if(songs[b].name===songName){
+            num = b;
+          }
+        }
+        if(num===songs.length){
+          songs.push(vals);
+        }
+        playlistSongs.push(parseInt(num));
+      }
+      const playlists = data[0].playlists;
+       for(let b of playlists){
+        if(b.name === playlistName){
+          playlistName = playlistName + "1"
+        }
+      }
+
+      // Get data form feilds and add to dict
+      data[0].playlists.push({name:playlistName,author:playlistAuthor,likes:1,cover:playlistCover,songs:playlistSongs,liked:true})
+      // create tile 
+      const tiles = document.getElementById("tiles")
+      createTile(playlists,data[0].playlists.length-1, tiles)
+      console.log(data[0])
+      
+});
+function getValue(param){
+  let temp =  param.value ?  param.value : param.placeholder;
+  param.value = ""
+  return temp;
+}
 //Event Listeners
 
 // Add an event listener for the DOMContentLoaded event
 document.addEventListener("DOMContentLoaded", onPageLoad);
 
 document.querySelector("#playlist-shuffle").addEventListener("click",  shuffle);
+
+document.querySelector(".new-button").addEventListener('click', (e)=>{
+  if(document.querySelector("#new-playlist").style.display === "none"){
+    document.querySelector("#new-playlist").style.display ="block"
+  }else{
+        document.querySelector("#new-playlist").style.display ="none"
+  }
+});
 
 
 // When the user clicks on <span> (x), close the modal
@@ -229,5 +321,11 @@ window.addEventListener('click', (e)=>{
 
 
 document.querySelector("#featured-button").addEventListener('click', (e)=>{
-    window.location.href = './pages/featured.html'
+  localStorage.setItem('data', JSON.stringify(data));  
+  window.location.href = './pages/featured.html'
 });
+
+const playlistDiv = document.querySelector("#edit-playlist");
+document.querySelector("#playlist-edit").addEventListener('click', ()=>{editSetup(data)});
+playlistDiv.querySelector("#add-button").addEventListener("click",  ()=>editAddSong(data));
+playlistDiv.querySelector("#done-button").addEventListener("click",  ()=>doneEdit(data));

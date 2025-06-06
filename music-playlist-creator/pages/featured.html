@@ -27,10 +27,32 @@
                 <h2 id="playlist-author">Playlist Author</h2>
                 <h2 id="playlist-length">Playlist Length</h2>
                 <h2 id="playlist-likes">Playlist Likes</h2>
-                <button id="playlist-shuffle">Shuffle</button>
+                <button class="playlist-button" id="playlist-shuffle">Shuffle</button>
+                <button class="playlist-button" id="playlist-edit">Edit</button>     
             </div>
         </div>
-            <div id="playlist-songs">
+        <div id="edit-playlist">
+            <div class="new-field">
+                <p class="new-label">Name</p>
+                <input class="new-input" id="new-name" type="text" placeholder="Coffee Shop Jazz">
+            </div>
+            <div class="new-field">
+                <p class="new-label">Cover Link:</p>
+                <input class="new-input" id="new-link" type="text" placeholder="https://picsum.photos/id/1/200/200">
+            </div>
+            <div class="new-field">
+                <p class="new-label">Author</p>
+                <input class="new-input" id="new-author" type="text" placeholder="Olivia M.">
+            </div>
+            <h1>Playlist Songs</h1>
+            <div id="new-song-list">
+            </div>
+            <div class="new-field">
+                <div class="new-playlist-button" id="add-button">Add Song</div>
+                <div class="new-playlist-button"id="done-button">Done</div>
+            </div>
+        </div>
+        <div id="playlist-songs">
         </div>
     </main>
     <footer>
