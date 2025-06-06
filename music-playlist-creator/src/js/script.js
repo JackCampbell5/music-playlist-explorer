@@ -73,13 +73,13 @@ function createTile(playlists,a,tiles){
 
 
   const playId = document.createElement('p')
-  playId.setAttribute('class',"play-id")
+  playId.setAttribute('class',"play-likes")
   playId.innerText = `Likes: ${playlists[a].likes}`
   likeContainer.appendChild(playId);         
 
 
   const likeIcon = document.createElement('img')
-  likeIcon.setAttribute('class',"tile-like");
+  likeIcon.setAttribute('class',"play-icon");
   likeIcon.src = playlists[a].liked ? "./assets/Heart/liked.png" : "./assets/Heart/unliked.png"
   let likes = parseInt(playlists[a].likes)
   likeIcon.addEventListener('click', (e)=>{
@@ -92,10 +92,11 @@ function createTile(playlists,a,tiles){
           img.src = "./assets/Heart/liked.png"
           likes++
       }
-      const playId = img.parentNode.querySelector(".play-id")
+      const playId = img.parentNode.querySelector(".play-likes")
       playlists[a].likes = likes
       playId.innerText = `Likes: ${likes}`
   });
+  
   likeContainer.appendChild(likeIcon)
   playlistInfo.appendChild(likeContainer)
   tiles.appendChild(playlistInfo);
@@ -123,7 +124,6 @@ document.querySelector("#sort-playlists").addEventListener('change',()=>{
     case "title":
       //Sort by title
       namesOrigonal = Array.from(tiles).map(element => element.querySelector(".play-name").innerText);
-      console.log(namesOrigonal)
       namesToSort = Array.from(namesOrigonal).sort();
       order = namesToSort.map(a => namesOrigonal.indexOf(a));
       break;
@@ -135,8 +135,10 @@ document.querySelector("#sort-playlists").addEventListener('change',()=>{
       break;
     case "like":
       //Sort by likes
-      namesOrigonal = Array.from(tiles).map(element => element.querySelector(".play-likes").innerText);
-      namesToSort = Array.from(namesOrigonal).sort();
+      namesOrigonal = Array.from(tiles).map(element => parseInt(element.querySelector(".play-likes").innerText.substring(7)));
+      console.log(namesOrigonal)
+      namesToSort = Array.from(namesOrigonal).sort((a, b) => b-a);
+      console.log(namesToSort)
       order = namesToSort.map(a => namesOrigonal.indexOf(a));
   }
 
@@ -145,7 +147,7 @@ document.querySelector("#sort-playlists").addEventListener('change',()=>{
     order.reverse();
   }
   
-  let help = Array.from({ length: playlists.length }, (_, i) => i);
+  let help = Array.from({ length: data[0].playlists.length }, (_, i) => i);
 
     // Swap the tiles so they are in the given order
    for(const a in order){
@@ -166,9 +168,35 @@ function swapTiles(playlist,songOne, songTwo){
       swapSongprop("src","",'.play-select-cover');
       swapSongprop("innerText","",'.play-name');
       swapSongprop("innerText","",'.play-author');
-      swapSongprop("innerText","",'.play-id');
+      swapSongprop("innerText","",'.play-likes');
       swapSongprop("style","borderColor")
 }
+
+
+document.querySelector("#search-box").addEventListener('change',()=>{
+    let searchFor = document.querySelector("#search-box").value.toLowerCase();
+    let tiles = document.getElementsByClassName("tile");
+    const names = Array.from(tiles).map(element => element.querySelector(".play-name").innerText.toLowerCase());
+    const authors = Array.from(tiles).map(element => element.querySelector(".play-author").innerText.toLowerCase());
+    const likes = Array.from(tiles).map(element => element.querySelector(".play-likes").innerText.substring(7));
+
+    let help = Array.from({ length: names.length }, (_, i) => i);
+    for(let a =0; a<names.length;a++){
+      // console.log(names[a])
+      // console.log(a);
+      // console.log(names[a].includes(searchFor))
+      if(names[a].includes(searchFor)||authors[a].includes(searchFor)||likes[a].includes(searchFor)){
+        tiles[a].style.display = 'block'
+        // help.splice(help.indexOf(a),1);
+      }else{
+        tiles[a].style.display = 'none'
+      }
+    }
+    
+  });
+
+
+
 
 //Event Listeners
 

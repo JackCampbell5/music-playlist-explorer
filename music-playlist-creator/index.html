@@ -15,8 +15,8 @@
         <h1>Music Playlist Explorer</h1>
         <div class="playlist-cards"></div>
         <div id="navbar">
-            <p id="sort-text">Sort:</p>
-            <select id="sort-playlists">
+            <p class="nav-text" id="sort-text">Sort:</p>
+            <select class="nav-input" id="sort-playlists">
                 <option value="defaultA">Default</option>
                 <option value="defaultD">Default &#40;Decending&#41;</option>
                 <option value="titleA">Title &#40;Accending&#41;</option>
@@ -27,8 +27,15 @@
                 <option value="likeD">Likes &#40;Decending&#41;</option>
             </select>
             <button class="navbar-button" id="featured-button">Featured</button>
+            <p class="nav-text" id="search-text">Search:</p>
+            <input class="nav-input" type="text" id="search-box" placeholder="search">
         </div>
     </header>
+    <main> 
+        <h2> Playlist Gallery</h2>
+        <div id="tiles">
+        </div>
+    </main>
     <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
@@ -49,11 +56,6 @@
             </div>
         </div>
     </div>
-    <main> 
-        <h2> Playlist Gallery</h2>
-        <div id="tiles">
-        </div>
-    </main>
     <footer>
         <h2>Footer :&#41;</h2>
     </footer>
