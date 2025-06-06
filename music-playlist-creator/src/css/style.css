@@ -67,6 +67,78 @@ body {
     background-color: #ffbbbb;
 }
 
+.new-button{
+    font-size: max(1.5vw,10px);
+    padding: min(1vw,10px);
+    margin: min(1vw,10px);
+    border: 5px solid rgb(0, 130, 139);
+    background-color: #a2fff1;
+    font-weight: bold;
+    border-radius: 10%;
+    width: max(10vw, 100px);
+    max-width: 120px;
+    text-align: center;
+}
+
+/* new Playlist */
+#new-playlist{
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid rgb(0, 255, 217);
+    border-radius: 2%;
+    display:none
+
+}
+.new-playlist-button{
+    font-size: max(1.5vw,10px);
+    padding: min(1vw,10px);
+    margin: min(1vw,10px);
+    border: 5px solid darkblue;
+    background-color: #a2a2ff;
+    font-weight: bold;
+    border-radius: 10%;
+    width: max(10vw, 50px);
+    max-width: 120px;
+    text-align: center;
+}
+
+#edit-playlist{
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid rgb(255, 217, 0);
+    border-radius: 2%;
+    display:none
+}
+
+.new-field{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.all-new-songs{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.new-input{
+    width: 30vw;
+    height: 25px;
+    font-size: 20px;
+}
+.new-label{
+    font-size: 25px;
+}
+.all-new-songs input{
+    width: 9vw;
+    height: 25px;
+    font-size: 20px;
+}
+
+
 
 
 
@@ -142,7 +214,7 @@ body {
     flex-direction: column;
 }
 
-#playlist-shuffle{
+.playlist-button{
 border: 10px green solid;
     font-size: 20px;
     font-weight: bold;
