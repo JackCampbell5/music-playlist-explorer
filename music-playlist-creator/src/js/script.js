@@ -222,7 +222,6 @@ function search(){
     const names = Array.from(tiles).map(element => element.querySelector(".play-name").innerText.toLowerCase());
     const authors = Array.from(tiles).map(element => element.querySelector(".play-author").innerText.toLowerCase());
     const likes = Array.from(tiles).map(element => element.querySelector(".play-likes").innerText.substring(7));
-
     let help = Array.from({ length: names.length }, (_, i) => i);
     for(let a =0; a<names.length;a++){
       if(names[a].includes(searchFor)||authors[a].includes(searchFor)||likes[a].includes(searchFor)){
@@ -230,6 +229,7 @@ function search(){
       }else{
         tiles[a].style.display = 'none'
       }
+      tiles[a].style.display
     }
     
   }
