@@ -6,22 +6,21 @@ document.addEventListener("DOMContentLoaded", onPageLoad);
 let data = undefined;
 
 async function onPageLoad() {
-    console.log("Page Loaded");
+    // console.log("Page Loaded");
     const temp  = localStorage.getItem('data');
     if(!temp){
-      console.log("Getting data")
+      // console.log("Getting data")
       data = await fetchData("../");
     }else{
       data = JSON.parse(temp);
     }
-    console.log(data)
     let playNumber = Math.floor(Math.random() * data[0].playlists.length);
     loadPlaylist(playNumber, data, "../")
 }
 
 document.querySelector("#home-button").addEventListener('click', (e)=>{
     localStorage.setItem('data', JSON.stringify(data));  
-    window.location.href = '/music-playlist-creator/index.html'
+    window.location.href = './../index.html'
 });
 
 

@@ -114,11 +114,12 @@ export function editAddSong(data){
 
 export function editSetup(data){
   const newDiv = document.querySelector("#edit-playlist")
-  if(newDiv.style.display === "none"){
-    newDiv.style.display ="block"
+  if(newDiv.style.display !== "block"){
+    newDiv.style.display ='block'
   }else{
-    newDiv.style.display ="none"
+    newDiv.style.display ='none'
   }
+
   const playlistName = document.querySelector("#playlist-name").innerText
   let  playlistInfo = undefined; 
   for(let a of data[0].playlists){
@@ -178,7 +179,17 @@ export function doneEdit(data,extend=""){
       }
 
       // Get data form feilds and add to dict
-      data[0].playlists.push({name:playlistName,author:playlistAuthor,likes:1,cover:playlistCover,songs:playlistSongs,liked:true})
+      playlists.push({name:playlistName,author:playlistAuthor,likes:1,cover:playlistCover,songs:playlistSongs,liked:true})
+
+      const oldPlaylistName = document.querySelector("#playlist-name").innerText
+      for(let a in playlists){
+        if(playlists[a].name===oldPlaylistName){
+          playlists.splice(a,1)
+          break;
+        }
+      }
+
+
       const all = document.getElementsByClassName("song-info")
       for(let a = 0; a<all.length;a++){
         all[0].remove()

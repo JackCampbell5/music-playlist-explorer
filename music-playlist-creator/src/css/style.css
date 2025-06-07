@@ -47,6 +47,7 @@ body {
 .play-icon{
     width: 20px;
     height: 20px;
+    margin: 10px;
 }
 .play-icon:hover{
     opacity: 50%;
@@ -61,10 +62,19 @@ body {
     border: 5px solid #a30101;
     border-radius: 20%;
     padding: 5px;
-    margin: 10px 10px 10px 30px;
+    margin: 10px 0px 10px 10px;
 }
 .play-delete:hover{
     background-color: #ffbbbb;
+}
+.play-edit{
+    border: 5px solid #a39301;
+    border-radius: 20%;
+    padding: 5px;
+    margin: 10px 0px 10px 0px;
+}
+.play-edit:hover{
+    background-color: #f8ffa9;
 }
 
 .new-button{
@@ -76,7 +86,7 @@ body {
     font-weight: bold;
     border-radius: 10%;
     width: max(10vw, 100px);
-    max-width: 120px;
+    max-width: 220px;
     text-align: center;
 }
 
@@ -98,7 +108,7 @@ body {
     font-weight: bold;
     border-radius: 10%;
     width: max(10vw, 50px);
-    max-width: 120px;
+    max-width: 220px;
     text-align: center;
 }
 
@@ -167,6 +177,7 @@ body {
   max-height: 80vh;
   overflow: auto;
   box-sizing: border-box;
+  box-shadow: 0 0 10px rgb(0, 0, 0)
 
 }
 

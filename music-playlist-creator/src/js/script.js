@@ -4,10 +4,10 @@ import { loadPlaylist,shuffle,fetchData,rainbow,swapProp,addSong,editSetup,editA
 var modal = document.getElementById("myModal");
 let data = undefined;
 async function onPageLoad() {
-  console.log("Page Loaded");
+  // console.log("Page Loaded");
   const temp  = localStorage.getItem('data');
   if(!temp){
-    console.log("Getting data")
+    // console.log("Getting data")
     data = await fetchData();
   }else{
     data = JSON.parse(temp);
@@ -39,9 +39,10 @@ function onPlaylistClicked(){
     if( playNumber === -1){
         console.error('Can not find which playlist was clicked:', error);
     }
-    console.log(playNumber)
 
    loadPlaylist(playNumber,data)
+    const newDiv = document.querySelector("#edit-playlist")
+    newDiv.style.display ='none'
 
 }
 
@@ -72,13 +73,7 @@ function createTile(playlists,a,tiles){
   playlistInfo.appendChild(playAuthor); 
 
   const likeContainer = document.createElement('div')
-  likeContainer.setAttribute('class','like-container')
-
-
-  const playId = document.createElement('p')
-  playId.setAttribute('class',"play-likes")
-  playId.innerText = `Likes: ${playlists[a].likes}`
-  likeContainer.appendChild(playId);         
+  likeContainer.setAttribute('class','like-container')      
 
 
   const likeIcon = document.createElement('img')
@@ -97,11 +92,16 @@ function createTile(playlists,a,tiles){
       }
       const playId = img.parentNode.querySelector(".play-likes")
       playlists[a].likes = likes
-      playId.innerText = `Likes: ${likes}`
+      playId.innerText = `${likes}`
   });
   likeContainer.appendChild(likeIcon)
 
-  const deleteButton = document.createElement('div')
+  const playId = document.createElement('p')
+  playId.setAttribute('class',"play-likes")
+  playId.innerText = `${playlists[a].likes}`
+  likeContainer.appendChild(playId);   
+
+    const deleteButton = document.createElement('div')
   deleteButton.setAttribute('class',"play-delete")
   deleteButton.innerText = `Delete`
   deleteButton.addEventListener('click', (e)=>{
@@ -125,6 +125,17 @@ function createTile(playlists,a,tiles){
     playlisOverall.remove();
   });
   likeContainer.appendChild(deleteButton);
+
+
+  const editButton = document.createElement('div')
+  editButton.setAttribute('class',"play-edit")
+  editButton.innerText = `Edit`
+  editButton.addEventListener('click', (e)=>{
+    setTimeout(function() {
+      editSetup(data)
+    }, 10);
+  });
+  likeContainer.appendChild(editButton)
   
   playlistInfo.appendChild(likeContainer)
   tiles.appendChild(playlistInfo);
@@ -163,10 +174,8 @@ document.querySelector("#sort-playlists").addEventListener('change',()=>{
       break;
     case "like":
       //Sort by likes
-      namesOrigonal = Array.from(tiles).map(element => parseInt(element.querySelector(".play-likes").innerText.substring(7)));
-      console.log(namesOrigonal)
+      namesOrigonal = Array.from(tiles).map(element => parseInt(element.querySelector(".play-likes").innerText));
       namesToSort = Array.from(namesOrigonal).sort((a, b) => b-a);
-      console.log(namesToSort)
       order = namesToSort.map(a => namesOrigonal.indexOf(a));
   }
 
@@ -254,7 +263,6 @@ document.querySelector("#done-button").addEventListener('click',()=>{
       let playlistAuthor = getValue(playlistDiv.querySelector("#new-author"))
   
       for(let a of addDiv){
-        console.log(addDiv)
         let songName = getValue(a.querySelector(".new-song"))
         let artistName = getValue(a.querySelector(".new-artist"))
         let albumName = getValue(a.querySelector(".new-album"))
@@ -283,7 +291,6 @@ document.querySelector("#done-button").addEventListener('click',()=>{
       // create tile 
       const tiles = document.getElementById("tiles")
       createTile(playlists,data[0].playlists.length-1, tiles)
-      console.log(data[0])
       
 });
 function getValue(param){
@@ -310,6 +317,7 @@ document.querySelector(".new-button").addEventListener('click', (e)=>{
 // When the user clicks on <span> (x), close the modal
  document.querySelector("#model-close").addEventListener('click', (e)=>{
   modal.style.display = "none";
+  reset()
 });
 
 // When the user clicks anywhere outside of the modal, close it
@@ -317,7 +325,21 @@ window.addEventListener('click', (e)=>{
   if (e.target == modal) {
     modal.style.display = "none";
   }
+  reset()
 });
+
+function reset(){
+  const all = document.getElementsByClassName("tile")
+  while (all.length > 0) {
+      all[0].remove();
+  }
+  const playlists = data[0].playlists;
+  // Create all the tiles based on the number of playlists tha exist 
+  const tiles = document.getElementById("tiles")
+  for(let a = 0; a<playlists.length; a++){
+      createTile(playlists,a, tiles)
+  }
+}
 
 
 document.querySelector("#featured-button").addEventListener('click', (e)=>{
