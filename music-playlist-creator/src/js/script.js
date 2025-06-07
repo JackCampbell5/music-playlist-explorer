@@ -1,8 +1,14 @@
-import { loadPlaylist,shuffle,fetchData,rainbow,swapProp,addSong,editSetup,editAddSong,doneEdit} from './helper.js';
+import { loadPlaylist,shuffle,fetchData,rainbow,swapProp,addSong,editSetup,editAddSong,doneEdit,getValue} from './helper.js';
 
 // Variables 
 var modal = document.getElementById("myModal");
 let data = undefined;
+
+
+
+
+// What to do when page loads
+document.addEventListener("DOMContentLoaded", onPageLoad);
 async function onPageLoad() {
   // console.log("Page Loaded");
   const temp  = localStorage.getItem('data');
@@ -21,7 +27,7 @@ async function onPageLoad() {
   }
 }
 
-
+// When a playlist is clicked bring up that playlist 
 function onPlaylistClicked(){
     modal.style.display = "block";
     const playlists = document.getElementsByClassName("tile")
@@ -49,7 +55,7 @@ function onPlaylistClicked(){
 
 
 
-
+// Creae a tile given the number(a), a database of info(playlists), and a location to put it in(tiles)
 function createTile(playlists,a,tiles){
   const playlistInfo = document.createElement('div')
   playlistInfo.setAttribute('class','tile')
@@ -72,10 +78,11 @@ function createTile(playlists,a,tiles){
   playAuthor.innerText =playlists[a].author
   playlistInfo.appendChild(playAuthor); 
 
+  // Everything lining the bottom of a tile(like is misleading)
   const likeContainer = document.createElement('div')
   likeContainer.setAttribute('class','like-container')      
 
-
+  // The like icon 
   const likeIcon = document.createElement('img')
   likeIcon.setAttribute('class',"play-icon");
   likeIcon.src = playlists[a].liked ? "./assets/Heart/liked.png" : "./assets/Heart/unliked.png"
@@ -101,7 +108,8 @@ function createTile(playlists,a,tiles){
   playId.innerText = `${playlists[a].likes}`
   likeContainer.appendChild(playId);   
 
-    const deleteButton = document.createElement('div')
+  // Delete button for playlist
+  const deleteButton = document.createElement('div')
   deleteButton.setAttribute('class',"play-delete")
   deleteButton.innerText = `Delete`
   deleteButton.addEventListener('click', (e)=>{
@@ -126,7 +134,7 @@ function createTile(playlists,a,tiles){
   });
   likeContainer.appendChild(deleteButton);
 
-
+  // Edit button for playlist
   const editButton = document.createElement('div')
   editButton.setAttribute('class',"play-edit")
   editButton.innerText = `Edit`
@@ -142,7 +150,7 @@ function createTile(playlists,a,tiles){
 }
 
 
-
+// Sort the playlists
 document.querySelector("#sort-playlists").addEventListener('change',()=>{
   let whatSort = document.querySelector("#sort-playlists").value;
   let tiles = document.getElementsByClassName("tile");
@@ -199,7 +207,7 @@ document.querySelector("#sort-playlists").addEventListener('change',()=>{
 });
 
 
-
+// Swap 2 tiles info without recreating (Helper for sort)
 function swapTiles(playlist,songOne, songTwo){
       const swapSongprop = swapProp(playlist,songOne,songTwo);
       swapSongprop("src","",'.play-select-cover');
@@ -210,19 +218,23 @@ function swapTiles(playlist,songOne, songTwo){
 }
 
 
+// Search the tiles
 document.querySelector("#search-button").addEventListener('click',search);
 document.querySelector("#search-box").addEventListener('keypress', function(event) {
   if (event.key === 'Enter') {
     search()}});
 
-  
 function search(){
+  // What to search for 
     let searchFor = document.querySelector("#search-box").value.toLowerCase();
+    
+    // the data to search
     let tiles = document.getElementsByClassName("tile");
     const names = Array.from(tiles).map(element => element.querySelector(".play-name").innerText.toLowerCase());
     const authors = Array.from(tiles).map(element => element.querySelector(".play-author").innerText.toLowerCase());
     const likes = Array.from(tiles).map(element => element.querySelector(".play-likes").innerText.substring(7));
-    let help = Array.from({ length: names.length }, (_, i) => i);
+
+    // Find what tiles match and keep them revealed
     for(let a =0; a<names.length;a++){
       if(names[a].includes(searchFor)||authors[a].includes(searchFor)||likes[a].includes(searchFor)){
         tiles[a].style.display = 'block'
@@ -234,6 +246,7 @@ function search(){
     
   }
 
+  // Clear the search box
 document.querySelector("#clear-button").addEventListener('click',()=>{
       let searchFor = document.querySelector("#search-box");
       searchFor.value = ""
@@ -241,6 +254,7 @@ document.querySelector("#clear-button").addEventListener('click',()=>{
 });
 
 
+// Add a song when creating a new playlist 
 document.querySelector("#add-button").addEventListener('click',()=>{
   const newDiv = document.querySelector("#new-playlist");    
   let addDiv = newDiv.querySelector("#new-song-list");
@@ -252,16 +266,19 @@ document.querySelector("#add-button").addEventListener('click',()=>{
 
 
 
-
+// Done wih creating a new playlist 
 document.querySelector("#done-button").addEventListener('click',()=>{
       let addDiv = document.getElementsByClassName("all-new-songs");
       let songs =  data[0].songs;
       let playlistSongs = []
+
+      // Playlist info
       let playlistDiv = document.querySelector("#new-playlist");
       let playlistName = getValue(playlistDiv.querySelector("#new-name"))
       let playlistCover = getValue(playlistDiv.querySelector("#new-link"))
       let playlistAuthor = getValue(playlistDiv.querySelector("#new-author"))
   
+      // Get all the congs 
       for(let a of addDiv){
         let songName = getValue(a.querySelector(".new-song"))
         let artistName = getValue(a.querySelector(".new-artist"))
@@ -293,18 +310,12 @@ document.querySelector("#done-button").addEventListener('click',()=>{
       createTile(playlists,data[0].playlists.length-1, tiles)
       
 });
-function getValue(param){
-  let temp =  param.value ?  param.value : param.placeholder;
-  param.value = ""
-  return temp;
-}
-//Event Listeners
 
-// Add an event listener for the DOMContentLoaded event
-document.addEventListener("DOMContentLoaded", onPageLoad);
+
 
 document.querySelector("#playlist-shuffle").addEventListener("click",  shuffle);
 
+// Reveal new playlist menu when button is clicked 
 document.querySelector(".new-button").addEventListener('click', (e)=>{
   if(document.querySelector("#new-playlist").style.display === "none"){
     document.querySelector("#new-playlist").style.display ="block"
@@ -328,6 +339,8 @@ window.addEventListener('click', (e)=>{
   reset()
 });
 
+
+// Refresh the tiles once a playlist is edited
 function reset(){
   if(modal.style.display === "block"){
   const all = document.getElementsByClassName("tile")
@@ -343,12 +356,13 @@ function reset(){
 }
 }
 
-
+// Go to featured page and send the data 
 document.querySelector("#featured-button").addEventListener('click', (e)=>{
   localStorage.setItem('data', JSON.stringify(data));  
   window.location.href = './pages/featured.html'
 });
 
+// Edit playlist stuff
 const playlistDiv = document.querySelector("#edit-playlist");
 document.querySelector("#playlist-edit").addEventListener('click', ()=>{editSetup(data)});
 playlistDiv.querySelector("#add-button").addEventListener("click",  ()=>editAddSong(data));

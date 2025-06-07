@@ -27,8 +27,6 @@ document.querySelector("#home-button").addEventListener('click', (e)=>{
 document.querySelector("#playlist-edit").addEventListener('click', ()=>{editSetup(data)});
 document.querySelector("#add-button").addEventListener("click",  ()=>editAddSong(data));
 document.querySelector("#done-button").addEventListener("click",  ()=>doneEdit(data,"../"));
-
-
 document.querySelector("#playlist-shuffle").addEventListener("click",  shuffle);
 
 
