@@ -329,6 +329,7 @@ window.addEventListener('click', (e)=>{
 });
 
 function reset(){
+  if(modal.style.display === "block"){
   const all = document.getElementsByClassName("tile")
   while (all.length > 0) {
       all[0].remove();
@@ -339,6 +340,7 @@ function reset(){
   for(let a = 0; a<playlists.length; a++){
       createTile(playlists,a, tiles)
   }
+}
 }
 
 
