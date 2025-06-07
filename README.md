@@ -1,12 +1,10 @@
-# [Live Site!](https://music-playlist-explorer.onrender.com/)
-
 ## Unit Assignment: Music Playlist Explorer
 
 Submitted by: **Jack Campbell**
 
 Estimated time spent: **15** hours spent in total
 
-Deployed Application (): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
+Deployed Application (): [Music Playlist Explorer Deployed Site](https://music-playlist-explorer.onrender.com/)
 
 ### Application Features
 
@@ -140,20 +138,21 @@ Deployed Application (): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Yes, the topics in the lab did leave me prepared to complete the assignemnt
+Yes, the topics in the lab did leave me prepared to complete the assignment. There was nothing I was super confused about that could not easily be looked up in the documentation which was thoroughly explained how to do. Specifically learning about flexbox was extremely helpful as that was a technique I was not familiar with. I also really liked learning about creating HTML elements with JavaScript as I had never done that before and it was super cool 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I would have had more time I would have planned out everything more. I really enjoy modular design and thinking through it to do it the most modular way possible. Though to do that for this project and complete all of the stretch features after the original features required redoing quite a bit of work. Therefore if I were to do it again I would spend an hour planning out how everything was going to work and what file everything was going in to help me have less stress in the future.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
-
+//TODO
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- No open source libraries were used in this project
 
 ### Shout out
-
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
++ Lorem Picsum for amazing album images
++ Cohort 2 for a high energy in the room
++ Maxwell people for bus ride vibes
++ Terrence for various coding advice 

@@ -275,3 +275,7 @@ body {
     height: 100px;
     border-radius: 10%;
 }
+
+.search-button:hover{
+    background-color: #4a4aff;
+}
