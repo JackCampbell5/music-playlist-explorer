@@ -130,9 +130,7 @@ Deployed Application (): [Music Playlist Explorer Deployed Site](https://music-p
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video actually renders and is playable when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+https://drive.google.com/file/d/1YYxs6-l_PA6usrO2ysXzWYkbhh83awer/view?usp=drive_link
 
 ### Reflection
 
@@ -146,7 +144,8 @@ If I would have had more time I would have planned out everything more. I really
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-//TODO
+Though all my features worked, I was very rushed doing the walk thru so hopefully next time I will give more time to recording the walkthru. 
+
 ### Open-source libraries used
 
 - No open source libraries were used in this project
