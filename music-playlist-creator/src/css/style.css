@@ -24,7 +24,7 @@ body {
     
 }
 .tile:hover{
-    background-color: #00000050;
+    background-color: #f1e4ff;
     border-radius: 0%;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
@@ -81,13 +81,16 @@ body {
     font-size: max(1.5vw,10px);
     padding: min(1vw,10px);
     margin: min(1vw,10px);
-    border: 5px solid rgb(0, 130, 139);
-    background-color: #a2fff1;
+    border: 5px solid rgb(23, 139, 0);
+    background-color: #aaffa2;
     font-weight: bold;
     border-radius: 10%;
     width: max(10vw, 100px);
     max-width: 220px;
     text-align: center;
+}
+.new-button:hover{
+    background-color: #11ca00;
 }
 
 /* new Playlist */
@@ -226,14 +229,17 @@ body {
 }
 
 .playlist-button{
-border: 10px green solid;
+    border: 10px green solid;
+    background-color: #c7ffc2;
     font-size: 20px;
     font-weight: bold;
     margin: 5px;
     padding: 10px;
     border-radius: 20%;
 }
-
+.playlist-button:hover{
+    background-color: #79ff6c;
+}
 
 .song-image{
     width: 100px;
@@ -258,6 +264,9 @@ border: 10px green solid;
 /* The Title/Artist/Album of each song */
 .song-params{
     width: 70%;
+}
+.song-info:hover{
+    font-weight: bold;
 }
 
 /* The image by each playlist */
